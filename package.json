@@ -1,0 +1,36 @@
+{
+  "name": "simple-react-with-tools",
+  "version": "1.0.0",
+  "description": "A simple react boilerplate, with basic webpack, babel and linting tools.",
+  "main": "index.js",
+  "scripts": {
+    "clean": "rm dist/bundle.js",
+    "build-dev": "webpack--env development",
+    "build-prod": "webpack --env production",
+    "start": "webpack serve --env development",
+    "lint": "eslint --ignore-path .gitignore src/**/*.js",
+    "pretest": "npm run lint"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.12.9",
+    "@babel/preset-env": "^7.12.7",
+    "@babel/preset-react": "^7.12.7",
+    "babel-loader": "^8.2.2",
+    "eslint": "^7.14.0",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-react": "^7.21.5",
+    "html-webpack-plugin": "^4.5.0",
+    "prettier": "^2.2.1",
+    "webpack": "^5.9.0",
+    "webpack-cli": "^4.2.0",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "dependencies": {
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  }
+}
