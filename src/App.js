@@ -1,4 +1,5 @@
-import React from 'react';
+import { useState } from 'react';
+import styled from 'styled-components';
 
 const randomListData = [
   {
@@ -23,8 +24,17 @@ const randomListData = [
   },
 ];
 
-const renderItems = () => {
-  return randomListData.map(({ name, age }, index) => (
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 80vw;
+  max-width: 600px;
+  padding: 20px;
+  background: azure;
+`;
+
+const renderItems = (list) => {
+  return list.map(({ name, age }, index) => (
     <div key={index}>
       <p>Name: {name}</p>
       <p>Age: {age}</p>
@@ -33,11 +43,19 @@ const renderItems = () => {
 };
 
 const App = () => {
+  const [list, setList] = useState([]);
+
   return (
-    <>
+    <Wrapper data-debug="App">
       <h1>Hi this is my webpack testing project!</h1>
-      {renderItems()}
-    </>
+      <button
+        onClick={() => setList(list.length > 0 ? [] : randomListData)}
+        data-testid="button"
+      >
+        {list.length > 0 ? 'Hide List' : 'Show List'}
+      </button>
+      {list.length > 0 && <div data-testid="list">{renderItems(list)}</div>}
+    </Wrapper>
   );
 };
 

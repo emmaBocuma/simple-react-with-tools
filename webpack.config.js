@@ -26,7 +26,7 @@ const config = (env) => {
             options: {
               presets: [
                 ['@babel/preset-env', { targets: '>2%' }],
-                '@babel/preset-react',
+                ['@babel/preset-react', { runtime: 'automatic' }],
               ],
             },
           },
